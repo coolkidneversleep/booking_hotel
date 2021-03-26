@@ -47,6 +47,7 @@
               width="150px"
               height="50px"
               style="text-transform:Capitalize"
+              @click="verifyBooking"
             >
               Upload
             </v-btn>
@@ -61,6 +62,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 // import axios from 'axios';
 export default {
   name: "Mybook",
@@ -68,11 +70,21 @@ export default {
 
   data: ()=> ({
       booking_id: "",
-      image: "",
-
+      image: null,
+      
   }),
   methods: {
-
+    verifyBooking(){
+      const formData = new FormData()
+      formData.append('booking_id',this.booking_id)
+      this.image.filename = this.booking_id
+      formData.append('images',this.image)
+      axios.post('http://localhost:3000/slip',formData,{headers: {
+      'Content-Type': 'multipart/form-data'
+    }}).then(()=>{
+        console.log("Success")
+      })
+    }
   }
 };
 </script>
