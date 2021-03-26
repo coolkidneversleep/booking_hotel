@@ -1,3 +1,4 @@
+
 <template>
   <v-app>
     <v-app-bar
@@ -37,7 +38,7 @@
 
 <script>
 import BookingForm from '../components/BookingForm.vue';
-
+// import axios from 'axios';
 export default {
   name: 'Booking_page',
 
