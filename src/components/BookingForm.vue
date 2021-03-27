@@ -142,6 +142,12 @@
           <v-row
             style="padding-buuton:70px; padding-top:0px; padding-left:110px"
           >
+          <v-dialog
+      v-model="dialog"
+      persistent
+      max-width="290"
+    >
+     <template v-slot:activator="{ on, attrs }">
             <v-btn
               @click="mybooking"
               dark
@@ -150,9 +156,29 @@
               color="#7586F7"
               width="250px"
               height="50px"
+              v-bind="attrs"
+              v-on="on"
             >
               Book Now
             </v-btn>
+            </template>
+      <v-card>
+        <v-card-title class="headline">
+          Booking Success !
+        </v-card-title>
+        <v-card-text>Please check your email to verify your booking</v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn
+            color="green darken-1"
+            text
+            @click="dialog = false"
+          >
+            ok
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
           </v-row>
         </v-card>
       </v-col>
@@ -183,6 +209,7 @@ export default {
     children: "",
     checkin: "",
     checkout: "",
+    dialog: false,
   }),
   methods: {
     mybooking() {
@@ -197,7 +224,7 @@ export default {
         children: this.children,
         checkin: this.checkin,
         checkout: this.checkout,
-      }).then(()=>{alert("booking success! Please check your email to verify booking")});
+      })
     },
   },
 };
