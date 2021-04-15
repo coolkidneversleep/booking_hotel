@@ -22,12 +22,7 @@
       >
         <h2>My booking</h2>
       </v-btn>
-      <v-btn
-        href="/"
-        text
-      >
-        <h2>Log Out</h2>
-      </v-btn>
+      
     </v-app-bar>
 
     <v-main>
