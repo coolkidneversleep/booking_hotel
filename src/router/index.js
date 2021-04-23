@@ -16,6 +16,11 @@ const routes = [
     component: () => import('../views/Mybooking_page.vue')
   },
   {
+    path: '/canclebooking',
+    name: 'Cancle_page',
+    component: () => import('../views/Cancle_page.vue')
+  },
+  {
     path: '/',
     name: 'Booking_page',
     component: () => import('../views/Booking_page.vue')
