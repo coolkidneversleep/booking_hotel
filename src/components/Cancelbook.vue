@@ -25,7 +25,7 @@
           <v-row style="padding-bottom:0px">
             <v-col cols="12" sm="12" style="padding-bottom:0px">
               <v-text-field
-                v-model="booking_id"
+                v-model="firstname"
                 label="Firstname"
                 background-color="#F0F2FF"
                 filled
@@ -40,7 +40,7 @@
           <v-row style="padding-bottom:0px">
             <v-col cols="12" sm="12" style="padding-bottom:0px">
               <v-text-field
-                v-model="booking_id"
+                v-model="lastname"
                 label="Lastname"
                 background-color="#F0F2FF"
                 filled
@@ -66,7 +66,7 @@
                   width="150px"
                   height="50px"
                   style="text-transform:Capitalize"
-                  @click="verifyBooking"
+                  @click="cancelbooking"
                   v-bind="attrs"
                   v-on="on"
                 >
@@ -101,29 +101,22 @@
 <script>
 import axios from "axios";
 export default {
-  name: "Canclebook",
+  name: "Cancelbook",
   components: {},
 
   data: () => ({
     booking_id: "",
-    image: null,
+    firstname: "",
+    lastname: "",
     dialog: false,
   }),
   methods: {
-    verifyBooking() {
-      const formData = new FormData();
-      formData.append("booking_id", this.booking_id);
-      this.image.filename = this.booking_id;
-      formData.append("images", this.image);
-      axios
-        .post("http://localhost:3000/slip", formData, {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        })
-        .then(() => {
-          console.log("Success");
-        });
+    cancelbooking() {
+      axios.post( 'http://localhost:3000/cancel',{
+        booking_id: this.booking_id,
+        firstname: this.firstname,
+        lastname: this.lastname,
+      })
     },
   },
 };

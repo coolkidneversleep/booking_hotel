@@ -23,23 +23,23 @@
     </v-app-bar>
 
     <v-main>
-      <Canclebook/>
+      <Cancelbook/>
     </v-main>
   </v-app>
 </template>
 
 <script>
-import Canclebook from '../components/Canclebook';
+import Cancelbook from '../components/Cancelbook';
 
 export default {
-  name: 'Cancle_page',
+  name: 'Cancel_page',
 
   components: {
-    Canclebook,
+    Cancelbook,
   },
 
   data: () =>
-    Canclebook({
+    Cancelbook({
     //
   }),
 };
