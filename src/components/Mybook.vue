@@ -100,7 +100,7 @@ export default {
       this.image.filename = this.booking_id;
       formData.append("images", this.image);
       axios
-        .post("http://192.168.133.10:3000/slip", formData, {
+        .post("http://localhost:3000/slip", formData, {
           headers: {
             "Content-Type": "multipart/form-data",
           },
