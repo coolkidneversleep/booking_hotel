@@ -112,7 +112,7 @@ export default {
   }),
   methods: {
     cancelbooking() {
-      axios.post( 'http://192.168.133.10:3000/cancel',{
+      axios.post( 'http://localhost:3000/cancel',{
         booking_id: this.booking_id,
         firstname: this.firstname,
         lastname: this.lastname,
