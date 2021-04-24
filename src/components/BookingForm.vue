@@ -213,7 +213,7 @@ export default {
   }),
   methods: {
     mybooking() {
-      axios.post( 'http://localhost:3000/reserve',{
+      axios.post( 'http://192.168.133.10:3000/reserve',{
         firstname: this.firstname,
         lastname: this.lastname,
         email: this.email,
